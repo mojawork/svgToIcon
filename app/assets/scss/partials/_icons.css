@@ -1,0 +1,73 @@
+
+
+.icon:before {
+  font-family: "Icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+.icon-arrow:before {
+  content: "\E001";
+}
+
+.icon-arrow_down:before {
+  content: "\E002";
+}
+
+.icon-close:before {
+  content: "\E003";
+}
+
+.icon-flash:before {
+  content: "\E004";
+}
+
+.icon-gear:before {
+  content: "\E005";
+}
+
+.icon-gear_animate:before {
+  content: "\E006";
+}
+
+.icon-gear_rotate:before {
+  content: "\E007";
+}
+
+.icon-lock:before {
+  content: "\E008";
+}
+
+.icon-login:before {
+  content: "\E009";
+}
+
+.icon-menue:before {
+  content: "\E00A";
+}
+
+.icon-next:before {
+  content: "\E00B";
+}
+
+.icon-open:before {
+  content: "\E00C";
+}
+
+.icon-play:before {
+  content: "\E00D";
+}
+
+.icon-prev:before {
+  content: "\E00E";
+}
+
+.icon-stop:before {
+  content: "\E00F";
+}
