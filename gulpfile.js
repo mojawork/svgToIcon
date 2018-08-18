@@ -1,27 +1,39 @@
 'use strict';
 
-var gulp = require('gulp');
-var iconfont = require('gulp-iconfont');
-var iconfontCss = require('gulp-iconfont-css');
-var runTimestamp = Math.round(Date.now()/1000);
+const gulp = require('gulp');
+const iconfont = require('gulp-iconfont');
+const iconfontCss = require('gulp-iconfont-css');
 
-var fontName = 'Icons';
+
+// ---- config ---
+const fontName = 'Icons';  //Name of the font
+const fontFormat =  ['ttf', 'eot', 'woff'];  //The font file formats that will be created
+const runTimestamp = Math.round(Date.now()/1000); //Recommended to get consistent builds when watching files
+
+// ---- import ---
+const folderSvg = 'import/svg/*.svg'; //Source folder containing the SVG images
+const cssTemplate = 'import/templates/_icons.css'; //The path to the template that will be used to create the SASS/LESS/CSS file
+const scssTemplate = 'import/templates/_icons.scss';
+
+// ---- export ---
+const cssExport = 'css/icons.css'; //The path where the css file will be generated
+const fontExport = 'app/assets/fonts'; //The path where the fonts will be generated
+const scssExport = 'import/templates/_icons.scss';
+
 
 gulp.task('iconfont', function(){
-    return gulp.src(['svg/*.svg']) // Source folder containing the SVG images
+    return gulp.src([folderSvg])
         .pipe(iconfontCss({
-            fontName: fontName, // The name that the generated font will have
-            // path: 'app/assets/scss/templates/_icons.scss', // The path to the template that will be used to create the SASS/LESS/CSS file
-            path: 'app/assets/scss/templates/_icons.css', // The path to the template that will be used to create the SASS/LESS/CSS file
-            targetPath: '../../scss/partials/_icons.scss', // The path where the file will be generated
-            fontPath: '../../assets/fonts/icons/' // The path to the icon font file
+            fontName: fontName,
+            path: cssTemplate,
+            targetPath: '../' + cssExport
         }))
         .pipe(iconfont({
             prependUnicode: false, // Recommended option
-            fontName: fontName, // Name of the font
-            formats: ['ttf', 'eot', 'woff'], // The font file formats that will be created
+            fontName: fontName,
+            formats: fontFormat,
             normalize: true,
-            timestamp: runTimestamp // Recommended to get consistent builds when watching files
+            timestamp: runTimestamp
         }))
-        .pipe(gulp.dest('app/assets/fonts/icons/'));
+        .pipe(gulp.dest(fontExport));
 });
