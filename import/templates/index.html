@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>mojawork - svg - svg to font-icons</title>
     <style>
         @font-face {
             font-family: "Icons";
@@ -13,14 +13,72 @@
             url('fonts/Icons.woff') format('woff'),
             url('fonts/Icons.ttf') format('truetype')
         }
+
+        html {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size:62.5%;
+        }
+        body{
+            background-color:#efefef;
+            color:#333333;
+            margin: 2rem;
+        }
+        h1, span{
+            font-size: 2.8rem;
+        }
+        .color{
+            color:#de0000;
+        }
+        .color:nth-child(odd){
+            color:#0470b2;
+        }
+        h2{
+            font-size: 1.8rem;
+        }
+        h3{
+            font-size: 1rem;
+        }
+        hr{
+            border:0;
+            height:1px;
+            background-color: #333333;
+        }
+        .x2{
+            font-size: 5.6rem;
+
+        }
+        .x4{
+            font-size: 11.12rem;
+        }
+
     </style>
     <link rel="stylesheet" href="css/icons.css">
 </head>
 <body>
 
-<h1 class="icon icon-arrow">Tolle Wurst</h1>
-<h1 class="icon icon-gear_animate">icon-gear_animate</h1>
-<h1 class="icon icon-gear">icon-gear</h1>
+<h1 class="icon icon_gear_before">icon - icon_gear_before</h1>
+<h2 class="icon icon_gear_before  icon_gear_after">icon icon_gear_before  icon_gear_after</h2>
+<hr/>
+
+<span class="icon icon_arrow_before color"></span>
+<span class="icon icon_close_before color"></span>
+<span class="icon icon_gear_before color"></span>
+<span class="icon icon_login_before color"></span>
+<span class="icon icon_menue_before color"></span>
+<span class="icon icon_next_before color"></span>
+<span class="icon icon_open_before color"></span>
+<span class="icon icon_play_before color"></span>
+<span class="icon icon_stop_before color"></span>
+
+<hr/>
+<h2 class="icon icon_arrow_before icon_top">icon icon_arrow_before icon_top</h2>
+<h2 class="icon icon_arrow_before icon_left">icon icon_arrow_before icon_left</h2>
+<h2 class="icon icon_arrow_before icon_bottom">icon icon_arrow_before icon_bottom</h2>
+<h2 class="icon icon_arrow_before icon_right">icon icon_arrow_before icon_right</h2>
+<hr>
+<h1 class="icon icon_gear_before x2">x2</h1>
+<h1 class="icon icon_gear_before x4">x4</h1>
+<hr>
 <h1 class="icon icon-gear_rotate">icon-gear_rotate</h1>
 <h1 class="icon icon-lock">icon-lock</h1>
 

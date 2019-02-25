@@ -8,20 +8,42 @@
     url('<%= fontPath %><%= fontName %>.svg<%= cacheBusterQueryString %>#<%= fontName %>') format('svg');
 }
 
-.<%= cssClass %>:before {
-   font-family: "<%= fontName %>";
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-   font-style: normal;
-   font-variant: normal;
-   font-weight: normal;
-   /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
-   text-decoration: none;
-   text-transform: none;
-    }
+
+.<%= cssClass %>::after, .<%= cssClass %>::before {
+    font-family: "<%= fontName %>";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+    display: inline-block;
+    position: relative;
+    top: 0.18em;
+   }
+
+.<%= cssClass %>_top::after, .<%= cssClass %>_top::before {
+    transform: rotate(270deg);
+}
+
+.<%= cssClass %>_left::after, .<%= cssClass %>_left::before {
+    transform: rotate(0deg);
+}
+
+.<%= cssClass %>_bottom::after, .<%= cssClass %>_bottom::before {
+    transform: rotate(90deg);
+}
+
+.<%= cssClass %>_right::after, .<%= cssClass %>_right::before {
+   transform: rotate(180deg);
+}
+
 
 <% _.each(glyphs, function(glyph) { %>
-    .<%= cssClass %>-<%= glyph.fileName %>:before {
+    .<%= cssClass %>_<%= glyph.fileName %>_after::after,
+    .<%= cssClass %>_<%= glyph.fileName %>_before::before {
         content: "\<%= glyph.codePoint %>";
     }
 <% }); %>
